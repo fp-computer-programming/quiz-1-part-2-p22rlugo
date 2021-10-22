@@ -7,7 +7,8 @@ k = j % 100
 
 day = "None"
 
-day_formula = (q + ((26 *(m + 1)) / 10) + k + (k / 4) + (j / 4) + (5 * j)) % 7
+# Couldn't figure out the issue, it would print out 6 not 7
+day_formula = (q + (26 * (m + 1) // 10) + k + (k // 4) + (j // 4) + (5 * j)) % 7 + 1
 
 if day_formula == 0:
     day = "Saturday"
@@ -26,4 +27,4 @@ elif day_formula == 6:
 else:
     print("Error",day_formula)
 
-print(q,"/",m,"/",j,"was a",day)
+print(m,"/",q,"/",j,"was a",day,day_formula)
